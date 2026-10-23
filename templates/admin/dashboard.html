@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Admin reports{% endblock %}
+{% block content %}
+<h1>Admin reports</h1>
+<section class="report-card">
+  <h2>Daily report</h2>
+  <label>Report date <input id="report-date" type="date"></label>
+  <button id="load-daily">Load daily report</button>
+  <div id="daily-results" class="metrics"></div>
+</section>
+<section class="report-card">
+  <h2>Player report</h2>
+  <label>Player <select id="player-select"><option value="">Loading players…</option></select></label>
+  <button id="load-user">Load player report</button>
+  <div id="user-results"></div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="{{ url_for('static', filename='js/admin.js') }}" defer></script>{% endblock %}

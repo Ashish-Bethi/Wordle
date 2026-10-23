@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Log in · Wordle{% endblock %}
+{% block content %}
+<section class="auth-card">
+  <h1>Welcome back</h1><p>Log in to play Wordle.</p>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Username<input name="username" minlength="5" required autocomplete="username"></label>
+    <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+    <button type="submit">Log in</button>
+  </form>
+  <p>New player? <a href="{{ url_for('register') }}">Create an account</a></p>
+</section>
+{% endblock %}

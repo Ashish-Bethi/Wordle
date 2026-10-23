@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Register · Wordle{% endblock %}
+{% block content %}
+<section class="auth-card">
+  <h1>Create account</h1>
+  <p>Username: at least 5 English letters. Password: at least 5 characters, including a letter, a number, and one of $ % * &.</p>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label>Username<input name="username" minlength="5" required autocomplete="username"></label>
+    <label>Password<input type="password" name="password" minlength="5" required autocomplete="new-password"></label>
+    <button type="submit">Register</button>
+  </form>
+  <p>Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+</section>
+{% endblock %}
