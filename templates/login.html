@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Log in · Wordle{% endblock %}
+{% block page_class %}auth-layout{% endblock %}
 {% block content %}
 <section class="auth-card">
-  <h1>Welcome back</h1><p>Log in to play Wordle.</p>
+  <h1>Welcome back</h1>
+  <p>Log in to continue playing Wordle.</p>
   <form method="post">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <label>Username<input name="username" minlength="5" required autocomplete="username"></label>
-    <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+    <label>
+      Username
+      <input name="username" minlength="5" required autocomplete="username" placeholder="Enter your username">
+    </label>
+    <label>
+      Password
+      <input type="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+    </label>
     <button type="submit">Log in</button>
   </form>
-  <p>New player? <a href="{{ url_for('register') }}">Create an account</a></p>
+  <p class="account-prompt">New player? <a href="{{ url_for('register') }}">Create an account</a></p>
 </section>
 {% endblock %}

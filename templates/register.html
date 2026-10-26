@@ -1,15 +1,32 @@
 {% extends "base.html" %}
 {% block title %}Register · Wordle{% endblock %}
+{% block page_class %}auth-layout{% endblock %}
 {% block content %}
 <section class="auth-card">
-  <h1>Create account</h1>
-  <p>Username: at least 5 English letters. Password: at least 5 characters, including a letter, a number, and one of $ % * &.</p>
+  <h1>Create your account</h1>
+  <p>Register to start playing Wordle.</p>
+
+  <div class="requirements">
+    <span class="requirements-title">Account requirements</span>
+    <ul>
+      <li><strong>Username:</strong> at least 5 English letters (A–Z, a–z).</li>
+      <li><strong>Password:</strong> at least 5 characters.</li>
+      <li>Password must include a letter, a number, and one special character: <code>$</code>, <code>%</code>, <code>*</code>, or <code>&amp;</code>.</li>
+    </ul>
+  </div>
+
   <form method="post">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <label>Username<input name="username" minlength="5" required autocomplete="username"></label>
-    <label>Password<input type="password" name="password" minlength="5" required autocomplete="new-password"></label>
-    <button type="submit">Register</button>
+    <label>
+      Username
+      <input name="username" minlength="5" required autocomplete="username" placeholder="Choose a username">
+    </label>
+    <label>
+      Password
+      <input type="password" name="password" minlength="5" required autocomplete="new-password" placeholder="Create a password">
+    </label>
+    <button type="submit">Create account</button>
   </form>
-  <p>Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
+  <p class="account-prompt">Already registered? <a href="{{ url_for('login') }}">Log in</a></p>
 </section>
 {% endblock %}
