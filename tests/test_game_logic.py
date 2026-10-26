@@ -5,9 +5,11 @@ def test_exact_position_is_correct():
 
 def test_present_and_absent_letters():
     result = evaluate_guess("APPLE", "ALERT")
-    assert result[0] == "correct"
-    assert result[1] == "present"  # L occurs in APPLE, but elsewhere
-    assert result[2] == "absent"
+    assert result[0] == "correct"  # A
+    assert result[1] == "present"  # L
+    assert result[2] == "present"  # E
+    assert result[3] == "absent"   # R
+    assert result[4] == "absent"   # T
 
 def test_duplicate_letters_are_not_overcounted():
     # Secret has one P. Guess contains two Ps: only one can be credited.
