@@ -58,6 +58,7 @@ def create_app(test_config=None):
                 flash("That username is already taken.", "error")
             else:
                 create_user(username, password, role="player")
+                db.session.commit()
                 flash("Registration successful. Please log in.", "success")
                 return redirect(url_for("login"))
         return render_template("register.html")
