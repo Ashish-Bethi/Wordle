@@ -39,7 +39,25 @@ body { margin: 0; min-height: 100vh; }
 }
 
 /* Center authentication screens vertically and horizontally. */
-.container.auth-layout,
+.container.auth-layout {
+    min-height: calc(100vh - 68px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+}
+
+.container.auth-layout > .flash {
+    width: min(100%, 430px);
+    margin: 0 0 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 9px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
 .container.game-layout {
   min-height: calc(100vh - 68px);
   margin: 0 auto;
@@ -179,9 +197,25 @@ a:hover { color: #000; }
   font-size: clamp(1.2rem, 4vw, 1.6rem);
   font-weight: 800;
 }
-.tile.correct { background: #555; color: #fff; border-color: #555; }
-.tile.present { background: #aaa; color: #fff; border-color: #aaa; }
-.tile.absent { background: #e5e5e5; color: #333; border-color: #e5e5e5; }
+
+.tile.correct {
+  background: #538d4e;
+  color: white;
+  border-color: #538d4e;
+}
+
+.tile.present {
+  background: #d97706;
+  color: white;
+  border-color: #d97706;
+}
+
+.tile.absent {
+  background: #787c7e;
+  color: white;
+  border-color: #787c7e;
+}
+
 
 .guess-controls {
   display: flex;
@@ -242,3 +276,4 @@ th, td { padding: .7rem; border-bottom: 1px solid #ddd; text-align: left; }
   .guess-controls button { width: 100%; }
   .game-panel { padding: 1rem; }
 }
+
